@@ -1,0 +1,128 @@
+% !TEX TS-program = xelatex
+
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Page ----------
+\usepackage[a4paper,margin=1.6cm]{geometry}
+
+% ---------- Fonts ----------
+\usepackage{fontspec}
+\setmainfont{Calibri}
+
+% ---------- Colors ----------
+\usepackage{xcolor}
+\definecolor{PrimaryBlue}{RGB}{0,70,140}
+\definecolor{SecondaryBlue}{RGB}{90,120,160}
+\definecolor{RuleGray}{RGB}{210,210,210}
+
+% --- section title with a line to the right ---
+\newcommand{\cvsection}[1]{%
+  \vspace{8pt}
+  {\Large\bfseries\color{PrimaryBlue}#1}\hspace{10pt}%
+  {\color{PrimaryBlue}\leaders\hrule height 1.2pt\hfill}\par
+  \vspace{4pt}
+}
+
+% ---------- Links ----------
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  urlcolor=PrimaryBlue,
+  linkcolor=PrimaryBlue
+}
+\urlstyle{same}
+
+% ---------- Lists ----------
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=2.2em, topsep=2pt, itemsep=2pt, parsep=0pt}
+\renewcommand\labelitemi{\textbullet}
+
+% ---------- Section style (long rule) ----------
+\usepackage{titlesec}
+\titleformat{\section}
+  {\Large\bfseries\color{PrimaryBlue}}
+  {}
+  {0pt}
+  {}
+  [\vspace{1pt}\color{RuleGray}\titlerule]
+\titlespacing*{\section}{0pt}{10pt}{6pt}
+
+% ---------- Header icons (FontAwesome) ----------
+\usepackage{fontawesome5}
+
+% --- icon style ---
+\newcommand{\hicon}[2][]{%
+  \textcolor{PrimaryBlue}{\raisebox{-0.15ex}{\mdseries\faIcon[#1]{#2}}}
+}
+% ---------- Alignment helpers ----------
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\newcolumntype{L}{>{\RaggedRight\arraybackslash}X}
+\newcolumntype{R}{>{\RaggedLeft\arraybackslash}p{4.2cm}}
+
+% ---------- Paragraph spacing ----------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+% ---------- Experience helper (Org/Role left, Loc/Date right) ----------
+\newcommand{\entry}[4]{%
+  \begin{tabularx}{\linewidth}{L R}
+    \textbf{#1} & \textcolor{SecondaryBlue}{#2}\\
+    {#3} & \textcolor{SecondaryBlue}{#4}\\
+  \end{tabularx}
+}
+
+% ---------- Compact subsection label inside sections (like Skills groups) ----------
+\newcommand{\subhead}[1]{\textbf{#1}\vspace{1pt}}
+
+% ===============================
+% Awesome-CV compatibility macros
+% (allow using cventries / cventry / cvitems in article)
+% ===============================
+
+\newenvironment{cventries}{}{}
+\newenvironment{cvitems}{\begin{itemize}}{\end{itemize}}
+
+% cventry{Title}{Organization}{Location}{Dates}{Items}
+\newcommand{\cventry}[5]{%
+  \entry{#2}{#3}{#1}{#4}%
+  \if\relax\detokenize{#5}\relax
+    \vspace{2pt}
+  \else
+    #5
+    \vspace{2pt}
+  \fi
+}
+
+\begin{document}
+
+\newenvironment{cvsubitems}{%
+  \begin{itemize}[leftmargin=1.6em, itemsep=1pt, topsep=1pt]
+}{%
+  \end{itemize}
+}
+
+% ===================== Header =====================
+{\fontsize{28pt}{30pt}\selectfont\bfseries\color{PrimaryBlue} Mohammadhassan Novinnam}\\[4pt]
+{\large Mechanical Engineer}\\[6pt]
+
+\small
+\hicon{map-marker-alt}~\href{https://maps.google.com/?q=1+Rue+de+Trèves,+L-2631+Luxembourg}{1, Rue de Trèves, L-2631 Luxembourg} \quad
+\hicon{envelope}~\href{mailto:mnovinnam1997@gmail.com}{mnovinnam1997@gmail.com}\\[3pt]
+\hicon{phone}~\href{tel:+352661901293}{+352 661 901 293} \quad
+\hicon{globe-europe}~\href{https://novinnam.info}{novinnam.info} \quad
+\hicon{github}~\href{https://github.com/Novinnam}{github.com/Novinnam} \quad
+\hicon{linkedin-in}~\href{https://linkedin.com/in/novinnnam}{linkedin.com/in/novinnnam/}
+\normalsize
+
+\vspace{8pt}
+
+% ===================== Sections (modular files) =====================
+\input{resume/profile.tex}
+\input{resume/career_objective.tex}
+\input{resume/experience.tex}
+\input{resume/education.tex}
+\input{resume/skills.tex}
+\input{resume/languages.tex}
+
+\end{document}
