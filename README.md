@@ -44,6 +44,7 @@ This resume demonstrates structured and maintainable LaTeX development.
 
 ## Project Structure
 
+```
 latex_resume/
 │── main.tex
 │── main.pdf
@@ -56,7 +57,7 @@ latex_resume/
 │ └── languages.tex
 │── .gitignore
 │── README.md
-
+```
 
 
 
