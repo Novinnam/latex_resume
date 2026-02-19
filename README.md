@@ -14,14 +14,13 @@ Mechanical Engineer specializing in:
 
 - 3D modeling and mechanical design (SolidWorks, Inventor, Fusion 360)
 - Structural and thermal simulation (ANSYS, Fluent, PyMAPDL)
-- Heat transfer and nanoscale computational workflows (LAMMPS, HPC environments)
 - Python-based automation and data analysis
 - Robotics simulation and control (ROS2)
 - Sustainable product creation and manufacturing systems
 
-🌐 Portfolio: https://novinnam.info  
-💻 GitHub: https://github.com/Novinnam  
-🔗 LinkedIn: https://linkedin.com/in/novinnnam  
+Portfolio: https://novinnam.info  
+GitHub: https://github.com/Novinnam  
+LinkedIn: https://linkedin.com/in/novinnnam  
 
 ---
 
